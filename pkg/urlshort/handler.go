@@ -42,12 +42,13 @@ func YAMLHandler(ymlBytes []byte, fallback http.Handler) (http.HandlerFunc, erro
 
 	return MapHandler(pathsToUrls, fallback), nil
 }
+*/
 
 type pathURL struct {
 	Path string `yaml:"path"`
 	URL  string `yaml:"url"`
 }
-*/
+
 func YAMLHandler(yamlBytes []byte, fallback http.Handler) (http.HandlerFunc, error) {
 	pathUrls, err := parseYaml(yamlBytes)
 	if err != nil {
@@ -73,5 +74,3 @@ func parseYaml(data []byte) ([]pathUrl, error) {
 	}
 	return pathUrls, nil
 }
-
-
